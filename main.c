@@ -188,7 +188,7 @@ unsigned long *find_sys_call_table ( void )
 		if( ((*(unsigned long *)vector_swi_addr) & 0xfffff000) == 0xe28f8000 )
         {
 			offset = ((*(unsigned long *)vector_swi_addr) & 0xfff) + 8;
-			return vector_swi_addr + offset;
+			return (void *)vector_swi_addr + offset;
 		}
 
 	return NULL;
